@@ -1,0 +1,31 @@
+<div class="wrapper">
+
+		<div class="content">
+			<!-- content here -->
+			<!-- <div class="product-grid product-grid--flexbox">
+				<div class="product-grid__wrapper"> -->
+					<!-- Product list start here -->
+				 
+					<!-- Single product -->
+					
+					<div *ngFor="let theme of themeslist | async" class="contents">
+							<form class="login-form" action="">
+									
+										  <ul>		
+									 <img src="/assets/{{theme.imageUrl}}"  width="200" height="150" >
+								   <h4>{{theme.name}}</h4>
+								   <p>₹{{theme.unitPrice}}/- </p>
+								   <!-- <p class="product-grid__description">{{theme.description}}</p> -->
+									<span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>				
+									<span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> View more</span>
+								
+										</ul>
+									
+						   
+							</form>
+					</div>
+			</div>
+		<!-- </div>
+				</div> -->
+				</div>
+				
