@@ -7,5 +7,5 @@ const routes = express();
 const controllers = require('../controllers')
 
 routes.post('/login', controllers.auth.logIn);
-
+routes.post('/register', controllers.auth.signupdoc);
 module.exports = routes

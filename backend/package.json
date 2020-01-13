@@ -15,15 +15,14 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "4.2.0",
-    "cors": "^2.8.5",
-    "eslint": "5.16.0",
     "mocha": "6.1.4",
     "nock": "10.0.6",
-    "nodemon": "1.18.11",
-    "pre-commit": "1.2.2",
     "sinon": "7.3.2",
     "sinon-chai": "3.3.0",
-    "super-request": "1.2.0"
+    "super-request": "1.2.0",
+    "eslint": "5.16.0",
+    "nodemon": "1.18.11",
+    "pre-commit": "1.2.2"
   },
   "dependencies": {
     "apidoc": "^0.17.7",

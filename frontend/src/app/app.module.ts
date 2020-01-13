@@ -15,6 +15,8 @@ import { AuthModule } from '@modules/auth/auth.module';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ThemeapiService } from '@shared/service/themeapi.service';
+import { NavComponent } from './layout/nav/nav.component';
+import { CartService } from '@shared/service/cart.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { ThemeapiService } from '@shared/service/themeapi.service';
     ContentLayoutComponent,
     FooterComponent,
     AuthLayoutComponent,
+    NavComponent
   ],
   imports: [
     // angular
@@ -39,7 +42,7 @@ import { ThemeapiService } from '@shared/service/themeapi.service';
 
     BrowserAnimationsModule
   ],
-  providers: [ThemeapiService],
+  providers: [ThemeapiService , CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

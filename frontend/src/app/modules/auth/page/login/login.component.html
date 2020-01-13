@@ -1,14 +1,28 @@
-<div class = "container">
-	<div class="wrapper">
-		<form action="admin_login.php" method="post" name="Login_Form" class="form-signin">       
-		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
-			  <hr class="colorgraph"><br>
-			  
-			  <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus="" />
-			  <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>     		  
-			 
-			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
-		</form>			
+	
+<body>
+	<div class="stl">
+	  <div class="login"><br><br><br><br><br><br><br><br>
+		
+  
+		<h2 class="login-header">Log in</h2>
+  
+		<form class="login-container" [formGroup]="loginForm" (ngSubmit)="login()">
+		  <!-- <p><input type="email" placeholder="Email"></p> -->
+		  <input placeholder="username" class="form-control" type="text" formControlName="username">
+		  <!-- error -->
+		  <div class="validation-error" *ngIf="submitted && myForm.fname.errors?.required">
+			Name is required.
+		  </div>
+		  <!-- <p><input type="password" placeholder="Password"></p> -->
+		  <input placeholder="password" class="form-control" type="password" formControlName="password">
+		  <!-- error -->
+		  <div class="validation-error" *ngIf="submitted && myForm.fname.errors?.required">
+			Name is required.
+		  </div>
+		  <p><input type="submit" value="Log in"></p>
+		 <a [routerLink]="['/auth/register']">Don't have an account? Signup here</a>
+		</form>
+		
+	  </div>
 	</div>
-</div>
-   
+  </body>

@@ -6,14 +6,13 @@ import { SharedModule } from '@shared/shared.module';
 
 import { AuthRoutingModule } from './auth.routing';
 import { HomeComponent } from './page/home/home.component';
-import { NavComponent } from 'app/layout/nav/nav.component';
+
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavComponent
   ],
   imports: [
     CommonModule,

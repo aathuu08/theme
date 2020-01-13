@@ -1,89 +1,49 @@
 <html>
-  <head>
- 
-  </head>
-  <body><div class="area"></div><nav class="main-menu">
-            <ul>
-                <li>
-                    <a href="http://justinfarrow.com">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                            Dashboard
-                        </span>
-                    </a>
-                  
-                </li>
-               
-                <li class="has-subnav"> 
-                    <a href="#">
-                       <i  class="fa fa-credit-card-alt fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">
-                           Online Banking
-                        </span>
-                    </a>
-                    
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="fa fa-pencil-square-o fa-2x " aria-hidden="true"></i>
-                        <span class="nav-text">
-                           Online Notes
-                        </span>
-                    </a>
-                   
-                </li>
-                <li>
-                    <a href="#">
-                        <i  class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">
-                          Grocery Shopping
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
-                        <span class="nav-text">
-                          Online Food Delivery
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                       <i class="fa fa-cogs" aria-hidden="true"></i>
-                        <span class="nav-text">
-                            Automative Parts
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Documentation
-                        </span>
-                    </a>
-                </li>
-            </ul>
 
-            <ul class="logout">
-                <li>
-                   <a href="#">
-                         <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">
-                            Logout
-                        </span>
-                    </a>
-                </li>  
-            </ul>
-        </nav>
-  </body>
-    </html>
+<head>
+
+</head>
+
+<body>
+    
+    <div class="area">
+    <nav class="main-menu">
+            
+        <ul>
+            <!-- <li>
+                <a href="http://justinfarrow.com">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Dashboard
+                    </span>
+                </a>
+
+            </li> -->
+            <p>Categories</p>
+            <li *ngFor="let category of categorylist | async">
+                <a (click)="navigatelistpage(category.name)">
+                    <i  class="fa fa-square fa-2x" aria-hidden="true"></i>
+                    <span class="nav-text">
+                        {{category.name}}
+                    </span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+                <a href="#/about/home">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Logout
+                    </span>
+                </a>
+            </li>
+        </ul>
+    
+    </nav>
+ </div> 
+</body>
+
+</html>
+

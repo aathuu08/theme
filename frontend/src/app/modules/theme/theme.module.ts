@@ -9,6 +9,8 @@ import { ThemeCheckoutComponent } from './page/theme-checkout/theme-checkout.com
 import { ThemeCartComponent } from './page/theme-cart/theme-cart.component';
 import { ThemeListComponent } from './page/theme-list/theme-list.component';
 import { SideBarComponent } from 'app/layout/sidebar/sidebar.component';
+import { NavComponent } from 'app/layout/nav/nav.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,9 +20,9 @@ import { SideBarComponent } from 'app/layout/sidebar/sidebar.component';
     ThemeListComponent,
     ThemeDetailsComponent,
     ThemeCheckoutComponent,
-    SideBarComponent  
+    SideBarComponent
   ],
-  imports: [SharedModule, ThemeRoutingModule],
+  imports: [SharedModule, ThemeRoutingModule,ReactiveFormsModule],
  
 })
 export class ThemeModule {}

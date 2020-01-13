@@ -16,62 +16,27 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class RegisterService {
 
-  
-
-  baseUri: String = 'http://localhost:5300/api';
-
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
-
   constructor(private http: HttpClient) { }
 
-  // Create
-
-  createSignup(data): Observable<any> {
-
-    const url = `${this.baseUri}/create`;
-
-    return this.http.post(url, data)
-
+  createUser(data): Observable<any> {
+   
+    return this.http.post('http://localhost:5300/register', data)
       .pipe(
-
         catchError(this.errorMgmt)
-
       )
-
   }
-
-  // Get all employees
-
-  getSignup() {
-
-    return this.http.get(`${this.baseUri}`);
-
-  }
-
-  // Error handling 
-
-  errorMgmt(error: HttpErrorResponse) {
-
-    let errorMessage = '';
-
-    if (error.error instanceof ErrorEvent) {
-
-      // Get client-side error
-
-      errorMessage = error.error.message;
-
-    } else {
-
-      // Get server-side error
-
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-
+  // errorMgmt(errorMgmt: any): import("rxjs").OperatorFunction<Object, any> {
+    // throw new Error("Method not implemented.");
+    errorMgmt(error: HttpErrorResponse) {
+      let errorMessage = '';
+      if (error.error instanceof ErrorEvent) {
+        // Get client-side error
+        errorMessage = error.error.message;
+      } else {
+        // Get server-side error
+        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      }
+      console.log(errorMessage);
+      return throwError(errorMessage);
     }
-
-    console.log(errorMessage);
-
-    return throwError(errorMessage);
-
-  }
-
 }

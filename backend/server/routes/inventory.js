@@ -17,5 +17,6 @@ routes.put('/', checkAuth, controllers.inventory.updateItem);
 routes.delete('/:itemId', checkAuth, controllers.inventory.deleteItem);
 routes.get('/:username', checkAuth, controllers.inventory.getItemsForUser);
 routes.get('/:itemId/detail', controllers.inventory.getItemDetail);
+routes.get('/:category/items', controllers.inventory.getItemByCategory);
 
 module.exports = routes

@@ -10,51 +10,48 @@ import { RegisterService } from '@app/service/register.service'
 })
 export class RegisterComponent implements OnInit {
   submitted = false;
-  registerForm: FormGroup;
+  signupForm: FormGroup;
 
   constructor(
     private router: Router,
     public fb: FormBuilder,
     private ngZone: NgZone,
    private registerService: RegisterService
-  ) {}
+  ) 
+  { this.mainForm();}
 
   ngOnInit() {
-    this.mainForm();
+   
   }
 
   mainForm() {
-    this.registerForm = this.fb.group({
-      name: ['', [Validators.required]],
-      moblie: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$')
-        ]
-      ],
-      password: ['', [Validators.required]]
-    });
-  } 
+    this.signupForm = this.fb.group({
+      fname: ['', [Validators.required]],
+      lname: ['', [Validators.required]],
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      // address: ['', [Validators.required]],
+      //phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+    })
+  }
   // Getter to access form control
-  get myForm(){
-    return this.registerForm.controls;
+  get myForm() {
+    return this.signupForm.controls;
   }
 
-  onSubmit() {
+  register() {
     this.submitted = true;
-    if (!this.registerForm.valid) {
+    if (!this.signupForm.valid) {
       return false;
     } else {
-      this.registerService.createSignup(this.registerForm.value).subscribe(
+      this.registerService.createUser(this.signupForm.value).subscribe(
         (res) => {
-          console.log('Signup successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/auth/login'))
+          console.log('User successfully created!')
+          this.ngZone.run(() => this.router.navigate(['login']))
         }, (error) => {
           console.log(error);
         });
     }
   }
-
 }

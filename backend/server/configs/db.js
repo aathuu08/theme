@@ -14,7 +14,7 @@ if (error) {
 
 const config = {
   db: {
-    host: 'mongodb://localhost:27017/fooddelivery'
+    host: 'mongodb://localhost:27017/themedb'
   }
 }
   

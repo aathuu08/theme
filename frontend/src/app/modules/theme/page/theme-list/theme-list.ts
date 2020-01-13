@@ -1,6 +1,6 @@
 export class ThemeList {
-    image: any;
+    imageUrl: any;
     name: string;
-    price: number;
+    unitPrice: number;
     description: string;
 }

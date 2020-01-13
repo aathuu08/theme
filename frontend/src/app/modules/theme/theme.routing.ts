@@ -25,11 +25,11 @@ export const routes: Routes = [
         component: ThemeCheckoutComponent
       },
       {
-        path: 'list',
+        path: 'list/:category',
         component: ThemeListComponent
       },
       {
-        path: 'details',
+        path: 'details/:_id',
         component: ThemeDetailsComponent
       }
     ]

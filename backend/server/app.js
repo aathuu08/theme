@@ -4,7 +4,7 @@ const express = require('express')
 
 const middleware = require('./middleware')
 const routes = require('./routes')
-const cors = require('cors'),
+
 const app = express()
 
 // Middleware Configuration
@@ -22,7 +22,8 @@ app.use('/', require('./routes/auth'))
 app.use('/cart', require('./routes/cart'))
 app.use('/inventory', require('./routes/inventory'))
 app.use('/review', require('./routes/review'))
-app.use('/cors',require('./routes/cors'))
+app.use('/category', require('./routes/category'))
+
 module.exports = app
 
 

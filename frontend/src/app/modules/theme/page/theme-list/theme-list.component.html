@@ -1,5 +1,5 @@
-<div class="wrapper">
 
+<div class="wrapper">
 		<div class="content">
 			<!-- content here -->
 			<!-- <div class="product-grid product-grid--flexbox">
@@ -8,7 +8,7 @@
 				 
 					<!-- Single product -->
 					
-					<div *ngFor="let theme of themeslist | async" class="contents">
+					<div *ngFor="let theme of themelist | async" class="contents">
 							<form class="login-form" action="">
 									
 										  <ul>		
@@ -16,8 +16,8 @@
 								   <h4>{{theme.name}}</h4>
 								   <p>₹{{theme.unitPrice}}/- </p>
 								   <!-- <p class="product-grid__description">{{theme.description}}</p> -->
-									<span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>				
-									<span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i> View more</span>
+									<span class="product-grid__btn product-grid__add-to-cart" (click)="addToCart(theme)"><i class="fa fa-cart-arrow-down"></i> Add to cart</span>				
+									<a [routerLink]="['/theme/details',theme._id]" class="add-to-cart btn btn-success">View details</a> 
 								
 										</ul>
 									

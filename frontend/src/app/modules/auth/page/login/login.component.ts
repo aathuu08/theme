@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
   error: string;
   isLoading: boolean;
   loginForm: FormGroup;
-
+  username: any;
+  password: any;
+  userDetails: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -34,17 +36,30 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     const credentials = this.loginForm.value;
+    const request = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password
+    }
 
-    this.authService
-      .login(credentials)
-      .pipe(
-        delay(5000),
-        tap(user => this.router.navigate(['/theme'])),
-        finalize(() => (this.isLoading = false)),
-        catchError(error => of((this.error = error)))
-      )
-      .subscribe();
-  }
+    this.authService.login(request)
+      
+    .subscribe(result => {
+      
+      console.log(result)
+      if (result.error) {
+        window.alert('invalid username or password');
+        console.log(result)
+      }
+      else {
+
+        localStorage.setItem('appuser', JSON.stringify(result));
+        //
+        this.router.navigate(['/home/home']);
+      }
+    }
+
+    );
+}
 
   private buildForm(): void {
     this.loginForm = this.formBuilder.group({
